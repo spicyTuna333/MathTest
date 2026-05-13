@@ -44,12 +44,6 @@ body {
     color: #e02020; 
 } 
 /* https://stackoverflow.com/questions/4151743/how-can-i-change-the-thickness-of-my-hr-tag */
-.logo-underline { 
-    width: min(480px, 72vw); 
-    height: 2px; 
-    background: #ffffff; 
-    margin-bottom: 40px; 
-} 
 /* https://www.youtube.com/watch?v=RFGiYHPKWgg */
          #username-input {
       background: rgba(255,255,255,0.1);
