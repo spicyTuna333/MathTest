@@ -85,7 +85,7 @@ function nouvelleparabole(){
     document.getElementById("c").value = ""
     document.getElementById("divAffiche").innerText = ""
 }
-*/
+
 //https://stackoverflow.com/questions/8145154/how-do-i-load-a-video-into-a-html5-page-with-javascript-using-onclick
 // Loaded only on index.html
 const opening = document.getElementById("opening");
@@ -139,4 +139,4 @@ if (usernameInput) {
     if (e.key === 'Enter') handlePlay();
   });
 }
-
+*/
