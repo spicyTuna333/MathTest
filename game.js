@@ -56,6 +56,8 @@ function genereParabole() {
 // https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Basic_usage
 const canvas= document.getElementById("myCanvas")
 const ctx= canvas.getContext("2d")
+canvas.width = window.innerwidth;
+canvas.height = window.innerheight
 const largeure = canvas.width
 const hauteure = canvas.height
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
