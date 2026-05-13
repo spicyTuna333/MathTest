@@ -45,7 +45,7 @@ body {
 } 
 /* https://stackoverflow.com/questions/4151743/how-can-i-change-the-thickness-of-my-hr-tag */
 /* https://www.youtube.com/watch?v=RFGiYHPKWgg */
-         #username-input {
+    #username-input {
       background: rgba(255,255,255,0.1);
       border: 2px solid rgba(255,255,255,0.5) !important;
       outline: none !important;
@@ -55,17 +55,24 @@ body {
       font-size: 18px;
       padding: 6px 12px;
       width: 200px;
+      pointer-events: all;
+      position: relative;
+      z-index: 20;
     }
     #username-input::placeholder { 
-        color: rgba(255,255,255,0.4); 
+        color: rgba(255,255,255,0.4);
     }
     #username-input:focus {
       border-color: #fff !important;
-      background: rgba(255,255,255,0.15);
+      background: rgba(
+          255,255,255,0.15);
     }
-    .gradient { 
-        cursor: pointer;
-              }
+    .gradient {
+      cursor: pointer;
+      position: relative;
+      z-index: 20;
+      pointer-events: all;
+    }
     .gradient-label {
       font-family: 'Bebas Neue', sans-serif;
       font-size: 20px;
@@ -73,8 +80,13 @@ body {
       color: #000;
       pointer-events: none;
     }
-    .gradient:hover .gradient-label {
+    .gradient:hover .gradient-label { 
         color: #fff;
+    }
+    .username-row {
+      position: relative;
+      z-index: 20;
+      pointer-events: all;
     }
 .screen { 
     position: fixed; 
