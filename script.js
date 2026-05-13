@@ -87,11 +87,11 @@ function nouvelleparabole(){
 }
 */
 //https://stackoverflow.com/questions/8145154/how-do-i-load-a-video-into-a-html5-page-with-javascript-using-onclick
-
+// Loaded only on index.html
 const opening = document.getElementById("opening");
-const loading = document.getElementById("loading");
+const loading  = document.getElementById("loading");
 
-function play(video, next, fallbackTime = 6000){
+function play(video, next, fallbackTime = 6000) {
   const fallback = setTimeout(next, fallbackTime);
   video.play().then(() => {
     video.onended = () => {
@@ -104,26 +104,23 @@ function play(video, next, fallbackTime = 6000){
   });
 }
 
-function startIntro(){
+function startIntro() {
   opening.hidden = false;
   loading.hidden = true;
   play(opening, startLoading);
 }
 
-function startLoading(){
+function startLoading() {
   opening.hidden = true;
   loading.hidden = false;
   play(loading, goToGame);
 }
 
-function goToGame(){
+function goToGame() {
   window.location.href = "homepage.html";
 }
 
-// Only runs on index.html where the videos exist
-if (opening && loading) {
-  startIntro();
-}
+startIntro();
  
 // Only runs on homepage.html where the input exists
 function handlePlay() {
