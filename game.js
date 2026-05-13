@@ -212,4 +212,4 @@ drawScene()
 
 let username = document.getElementById("txtusername").value
 
-document.getElementById("usernameDisplay").innerHTML = "Joueur : " + username;
+document.getElementById("usernameDisplay").innerText = "Joueur : " + username;
