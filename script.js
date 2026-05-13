@@ -124,21 +124,22 @@ function goToGame(){
 if (opening && loading) {
   startIntro();
 }
-
- function handlePlay() {
-            const username = document.getElementById('username-input').value.trim();
-            if (username === "") {
-                alert("S'il vous plaît, entrez un nom d'utilisateur !");
-                return;
-            }
-            localStorage.setItem('mathAttaqueUser', username);
-            window.location.href = "game.html";
-        }
-
-        // Pressing Enter in the input also triggers play
-        document.getElementById('username-input').addEventListener('keydown', function(e) {
-            if (e.key === 'Enter') handlePlay();
-        });
+ 
+// Only runs on homepage.html where the input exists
+function handlePlay() {
+  const username = document.getElementById('username-input').value.trim();
+  if (username === "") {
+    alert("S'il vous plaît, entrez un nom d'utilisateur !");
+    return;
+  }
+  localStorage.setItem('mathAttaqueUser', username);
+  window.location.href = "game.html";
 }
-
+ 
+const usernameInput = document.getElementById('username-input');
+if (usernameInput) {
+  usernameInput.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') handlePlay();
+  });
+}
 
