@@ -90,6 +90,7 @@ function nouvelleparabole(){
 
 const opening = document.getElementById("opening");
 const loading = document.getElementById("loading");
+
 function play(video, next, fallbackTime = 6000){
   const fallback = setTimeout(next, fallbackTime);
   video.play().then(() => {
@@ -102,31 +103,40 @@ function play(video, next, fallbackTime = 6000){
     next();
   });
 }
+
 function startIntro(){
   opening.hidden = false;
   loading.hidden = true;
   play(opening, startLoading);
 }
+
 function startLoading(){
   opening.hidden = true;
   loading.hidden = false;
   play(loading, goToGame);
 }
+
 function goToGame(){
   window.location.href = "homepage.html";
 }
-startIntro();
 
-document.getElementById('play-btn').addEventListener('click', function(event) {
+// Only runs on index.html where the videos exist
+if (opening && loading) {
+  startIntro();
+}
+
+// Only runs on homepage.html where play-btn exists
+const playBtn = document.getElementById('play-btn');
+if (playBtn) {
+  playBtn.addEventListener('click', function(event) {
     const username = document.getElementById('username-input').value.trim();
-    
     if (username === "") {
-        event.preventDefault(); 
-        alert("S'il vous plaît, entrez un nom d'utilisateur !");
-        return;
+      event.preventDefault();
+      alert("S'il vous plaît, entrez un nom d'utilisateur !");
+      return;
     }
-    
     localStorage.setItem('mathAttaqueUser', username);
-});
+  });
+}
 
 
