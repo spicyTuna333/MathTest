@@ -7,8 +7,5 @@ function handlePlay() {
   localStorage.setItem('mathAttaqueUser', username);
   window.location.href = "game.html";
 }
- 
-document.getElementById('username-input').addEventListener('keydown', function(e) {
-  if (e.key === 'Enter') handlePlay();
-});
+
  
