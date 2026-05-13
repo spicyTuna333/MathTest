@@ -125,18 +125,20 @@ if (opening && loading) {
   startIntro();
 }
 
-// Only runs on homepage.html where play-btn exists
-const playBtn = document.getElementById('play-btn');
-if (playBtn) {
-  playBtn.addEventListener('click', function(event) {
-    const username = document.getElementById('username-input').value.trim();
-    if (username === "") {
-      event.preventDefault();
-      alert("S'il vous plaît, entrez un nom d'utilisateur !");
-      return;
-    }
-    localStorage.setItem('mathAttaqueUser', username);
-  });
+ function handlePlay() {
+            const username = document.getElementById('username-input').value.trim();
+            if (username === "") {
+                alert("S'il vous plaît, entrez un nom d'utilisateur !");
+                return;
+            }
+            localStorage.setItem('mathAttaqueUser', username);
+            window.location.href = "game.html";
+        }
+
+        // Pressing Enter in the input also triggers play
+        document.getElementById('username-input').addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') handlePlay();
+        });
 }
 
 
