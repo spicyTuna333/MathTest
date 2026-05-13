@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="grid"></div>
+ <div class="grid"></div>
     <div class="home-bg"></div>
     <div class="home-overlay"></div>
     <div class="home-content">
@@ -16,14 +16,10 @@
         <div class="logo-underline"></div>
         <div class="username-row">
             <label for="username-input">Joueur:</label>
-            <!-- FIX: id changed from "txtusername" to "username-input" to match script.js -->
-            <!-- FIX: inputtype="text" changed to type="text" -->
             <input id="username-input" type="text" placeholder="Entrer votre nom" maxlength="20">
         </div>
-        
-        <div class="gradient">
-            <!-- FIX: added id="play-btn" so script.js listener can attach -->
-            <a id="play-btn" href="game.html">Play</a>
+        <div class="gradient" onclick="handlePlay()">
+            <span class="gradient-label">Play</span>
         </div>
     </div>
     <script src="script.js"></script>
