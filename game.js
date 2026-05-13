@@ -54,12 +54,15 @@ function genereParabole() {
     ctx.stroke()
 }*/
 // https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Basic_usage
-const canvas= document.getElementById("myCanvas")
-const ctx= canvas.getContext("2d")
-const largeure = window.innerwidth;
-const hauteure = window.innerheight
-canvas.width = largeure
+const canvas = document.getElementById("myCanvas")
+const ctx    = canvas.getContext("2d")
+
+// FIX: was window.innerwidth / window.innerheight (lowercase) — undefined in JS
+const largeure = window.innerWidth
+const hauteure = window.innerHeight
+canvas.width  = largeure
 canvas.height = hauteure
+
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
 function randomPositionPlayerX(minX, maxX) {
     minX = Math.ceil(minX)
@@ -81,27 +84,32 @@ function randomPositionEnemyY(minY, maxY) {
     maxY = Math.floor(maxY)
     return Math.floor(Math.random() * (maxY - minY + 1)) + minY
 }
+
 var playerX = randomPositionPlayerX(1, 3)
 var playerY = randomPositionPlayerY(2, 6)
 var enemyX  = randomPositionEnemyX(12, 15)
 var enemyY  = randomPositionEnemyY(2, 6)
+
 const griCol  = 16
 const gridRow = 10
 const celWid  = largeure / griCol
 const celHei  = hauteure / gridRow
+
 function griToPix(gx, gy) {
     return {
-px: gx * celWid,
-py: hauteure - gy * celHei
+        px: gx * celWid,
+        py: hauteure - gy * celHei
     }
 }
+
 let tire = false
 let path = []
 let t    = 0
+
 // https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Basic_usage
 function drawScene() {
-ctx.fillStyle = "#000"
-ctx.fillRect(0, 0, largeure, hauteure)
+    ctx.fillStyle = "#000"
+    ctx.fillRect(0, 0, largeure, hauteure)
     ctx.strokeStyle = "rgba(255,255,255,0.1)"
     ctx.lineWidth = 1
     for (let j = 0; j <= griCol; j++) {
@@ -128,6 +136,7 @@ ctx.fillRect(0, 0, largeure, hauteure)
     ctx.fillStyle = "#e44"
     ctx.fill()
 }
+
 // https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Advanced_animations
 function drawTrail(path, currentPos) {
     if (path.length < 2) return
@@ -144,42 +153,45 @@ function drawTrail(path, currentPos) {
     ctx.fillStyle = "#fff"
     ctx.fill()
 }
+
 function isNearEnemy(px, py) {
-    var e= griToPix(enemyX, enemyY)
-    var dx= px - e.px
-    var dy= py - e.py
+    var e  = griToPix(enemyX, enemyY)
+    var dx = px - e.px
+    var dy = py - e.py
     return Math.sqrt(dx*dx + dy*dy) < 14
 }
+
 function finishShot(didHit) {
     tire = false
     if (didHit) {
-    document.getElementById("divAffiche").innerText = "HIT!"
+        document.getElementById("divAffiche").innerText = "HIT!"
     } else {
-    document.getElementById("divAffiche").innerText = "Miss"
+        document.getElementById("divAffiche").innerText = "Miss"
     }
     drawScene()
 }
+
 // https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame
 // https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Transformations
 function lancer() {
     let a = parseFloat(document.getElementById("a").value)
     let b = parseFloat(document.getElementById("b").value)
-    let c = 0
     if (isNaN(a) || isNaN(b)) {
         document.getElementById("divAffiche").innerText = "Entrez des valeurs pour a et b!"
         return
     }
-    if (tire) { 
+    if (tire) {
         return
     }
     tire = true
-    t= 0
+    t    = 0
     path = []
     document.getElementById("divAffiche").innerText = ""
+
     function step() {
         var worldX = playerX + t
         var worldY = playerY + (-a*t*t + b*t)
-        var pos= griToPix(worldX, worldY)
+        var pos    = griToPix(worldX, worldY)
         path.push(pos)
         drawScene()
         drawTrail(path, pos)
@@ -197,19 +209,20 @@ function lancer() {
     }
     step()
 }
+
 function nouvelleparabole() {
     playerX = randomPositionPlayerX(1, 3)
     playerY = randomPositionPlayerY(2, 6)
-    enemyX = randomPositionEnemyX(12, 15)
+    enemyX  = randomPositionEnemyX(12, 15)
     enemyY  = randomPositionEnemyY(2, 6)
-    tire= false
-    path= []
-    t= 0
+    tire = false
+    path = []
+    t    = 0
     document.getElementById("divAffiche").innerText = ""
     drawScene()
 }
+
 drawScene()
-
-let username = document.getElementById("txtusername").value
-
-document.getElementById("usernameDisplay").innerText = "Joueur : " + username;
+// It was saved to localStorage on homepage.html and is retrieved here.
+let username = localStorage.getItem('mathAttaqueUser') || "Joueur"
+document.getElementById("usernameDisplay").innerText = "Joueur : " + username
