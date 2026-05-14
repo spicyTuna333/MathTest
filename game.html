@@ -7,26 +7,24 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+   <body>
+  <canvas id="myCanvas"></canvas>
+  <div style="position:fixed; top:0; left:0; width:100%; z-index:10; text-align:center; color:white;">
     <h2 id="usernameDisplay"></h2>
-    <center>
-        <div>
-            <br>
-            <h1>Entrer votre parabole</h1>
-            <div id="divformule"></div>
-            <p style="font-size: 30px;">
-                Y=
-                <input type="text" id="a" placeholder="<------A------>" class="abc">
-                X^2+
-                <input type="text" id="b" placeholder="<------B------>" class="abc">
-                X
-                <input type="button" id="btnSoumet" onclick="lancer()" value="TIRER" class="tir">
-            </p>
-            <div id="divAffiche"></div>
-            <!-- was type="reset" which clears fields but can cause unexpected behavior inside a form -->
-            <input type="button" id="init" onclick="nouvelleparabole()" value="Prochaine ronde" class="nouveaux">
-            <div id="Ereure"></div>
-        </div>
-    </center>
-    <script src="game.js"></script>
+    <h1>Entrer votre parabole</h1>
+    <div id="divformule"></div>
+    <p style="font-size:30px;">
+      Y=
+      <input type="text" id="a" placeholder="A" class="abc">
+      X^2+
+      <input type="text" id="b" placeholder="B" class="abc">
+      X
+      <input type="button" id="btnSoumet" onclick="lancer()" value="TIRER" class="tir">
+    </p>
+    <div id="divAffiche"></div>
+    <input type="button" id="init" onclick="nouvelleparabole()" value="Prochaine ronde" class="nouveaux">
+  </div>
+  <script src="game.js"></script>
+</body>
 </body>
 </html>
