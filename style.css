@@ -95,8 +95,8 @@ body {
     background: #dfdfdf;
     position: relative;
     border-radius: 100px; 
-    width: 30px;
-    height:10px;
+    width: 100px;
+    height:30px;
     border: none;
     display: flex;
     align-items: center;
