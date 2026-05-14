@@ -60,6 +60,10 @@ const ctx    = canvas.getContext("2d")
 // FIX: was window.innerwidth / window.innerheight (lowercase) — undefined in JS
 const largeure = window.innerWidth
 const hauteure = window.innerHeight
+canvas.style.position = "fixed"
+canvas.style.top = "0"
+canvas.style.left = "0"
+canvas.style.zIndex = "0"
 canvas.width  = largeure
 canvas.height = hauteure
 
