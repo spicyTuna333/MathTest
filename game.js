@@ -169,8 +169,18 @@ function finishShot(didHit) {
     tire = false
     if (didHit) {
         document.getElementById("divAffiche").innerText = "HIT!"
+        nouvelleparabole()
     } else {
         document.getElementById("divAffiche").innerText = "Miss"
+        function drawTrail(path, currentPos) {
+    if (path.length < 2) return
+    ctx.beginPath()
+    ctx.strokeStyle = "rgba(245, 253, 255, 1)"
+    ctx.lineWidth = 2
+    ctx.moveTo(path[0].px, path[0].py)
+    for (let i = 1; i < path.length; i++) {
+        ctx.lineTo(path[i].px, path[i].py)
+    }
     }
     drawScene()
 }
