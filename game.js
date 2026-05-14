@@ -91,7 +91,6 @@ function drawScene() {
     ctx.fillStyle = "#e44"// rouge
     ctx.fill()
 
-    // Dessine le dernier tir raté en pointillés
     drawHighlight()
 }
 //https://developer.mozilla.org/fr/docs/Web/API/CanvasRenderingContext2D/setLineDash
@@ -155,7 +154,7 @@ function finishShot(didHit) {
         if (tirsRestants <= 0) {
             document.getElementById("divAffiche").innerText = "Plus de balles, retourne a l'acceuil!"
             setTimeout(function() {
-                window.location.href = "Homepage.html"
+                window.location.href = "homepage.html"
             }, 2000)
         } else {
             document.getElementById("divAffiche").innerText = "Miss!"
