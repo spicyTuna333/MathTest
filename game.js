@@ -149,6 +149,10 @@ function finishShot(didHit) {
         document.getElementById("divAffiche").innerText = "Miss"    
         highlightPaths.push(path.slice())
         drawScene()
+        tirRestants -= 1
+        if (tirRestants <= 0) {
+            document.getElementById("div)
+        }
     }
 }
 function lancer() {
