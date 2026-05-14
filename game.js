@@ -135,6 +135,10 @@ function isNearEnemy(px, py) {
     return Math.sqrt(dx*dx + dy*dy) < 14 // distance totale < 14px = touché!
 }
 let tirsRestants = 5  
+function mettreAJourTirs() {
+    document.getElementById("tirs-restants").innerText = "Tirs : " + tirsRestants + " / 5"
+}
+
 function finishShot(didHit) {
     tire = false
 
@@ -146,16 +150,31 @@ function finishShot(didHit) {
         levelCounter()
         nouvelleparabole()
     } else {
-        document.getElementById("divAffiche").innerText = "Miss"    
         highlightPaths.push(path.slice())
         drawScene()
         tirRestants -= 1
         if (tirRestants <= 0) {
-            document.getElementById("div)
+            document.getElementById("divAffiche").innerText = "Plus de balles, retourne a l'acceuil"
+            // Référence setTimeout : https://developer.mozilla.org/fr/docs/Web/API/setTimeout
+            setTimeout(function() {
+                window.location.href = "Homepage.html"
+            }, 2000)
+        } else {
+            document.getElementById("divAffiche").innerText = "Miss!"
+            mettreAJourTirs()
+            drawScene()
+        }
+    }
+}
+
         }
     }
 }
 function lancer() {
+    if (tirsRestants <= 0) {
+        document.getElementById("divAffiche").innerText = "Plus de tirs!"
+        return
+    }
     //https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/parseFloat
     let a = parseFloat(document.getElementById("a").value)
     let b = parseFloat(document.getElementById("b").value)
@@ -197,7 +216,8 @@ function lancer() {
 
     step()
 }
-
+drawScene()
+mettreAJourTirs()
 function nouvelleparabole() {
     playerX = randomPositionPlayerX(1, 3)
     playerY = randomPositionPlayerY(2, 6)
@@ -206,6 +226,8 @@ function nouvelleparabole() {
     tire= false
     path= []
     t= 0
+    tirsRestants = 5
+    mettreAJourTirs()
     document.getElementById("a").value = ""
     document.getElementById("b").value= ""
     document.getElementById("divAffiche").innerText = ""
