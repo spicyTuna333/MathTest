@@ -1,39 +1,30 @@
-/* On importe les polices Google Fonts pour tout le projet */
-/* https://fonts.google.com */
+
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@400;600;700&display=swap');
 
-/* Style de base pour toute la page */
-/* https://developer.mozilla.org/fr/docs/Web/CSS/body */
 body { 
     width: 100%; 
-    height: 100vh;        /* 100vh = toute la hauteur de l'écran */
-    background: #000;     /* fond noir */
-    color: #fff;          /* texte blanc par défaut */
+    height: 100vh;       
+    background: #000; 
+    color: #fff;       
     font-family: 'Rajdhani', sans-serif; 
-    overflow: hidden;     /* empêche le défilement de la page */
-    margin: 0;            /* enlève la marge par défaut du navigateur */
+    overflow: hidden;  
+    margin: 0;            
     padding: 0;
 }
 
-/* Le canvas du jeu — occupe tout l'écran via game.js */
-/* https://developer.mozilla.org/fr/docs/Web/HTML/Element/canvas */
 #myCanvas { 
     display: block;
 }
 
-/* Image de fond de la page d'accueil */
-/* https://developer.mozilla.org/fr/docs/Web/CSS/background-image */
 .home-bg { 
     position: absolute; 
-    inset: 0;             /* couvre tout l'écran (haut, bas, gauche, droite = 0) */
+    inset: 0;
     background-image: url('Home_Page_Background.png'); 
     background-size: cover; 
     background-position: top center; 
-    z-index: 0;           /* derrière tout le reste */
+    z-index: 0;  
 } 
 
-/* Filtre sombre par-dessus l'image de fond */
-/* https://developer.mozilla.org/fr/docs/Web/CSS/gradient/linear-gradient */
 .home-overlay { 
     position: absolute; 
     inset: 0; 
@@ -41,19 +32,16 @@ body {
     z-index: 1;
 } 
 
-/* Conteneur central de la page d'accueil */
-/* https://developer.mozilla.org/fr/docs/Web/CSS/CSS_flexible_box_layout */
 .home-content { 
     position: relative; 
-    z-index: 5;           /* au-dessus du fond et du filtre */
+    z-index: 5;        
     height: 100vh; 
-    display: flex;        /* flexbox pour centrer le contenu */
+    display: flex;   
     flex-direction: column; 
-    align-items: center;  /* centré horizontalement */
-    justify-content: center; /* centré verticalement */
+    align-items: center; 
+    justify-content: center; 
 } 
 
-/* Logo "Math Attaque" — taille adaptable selon la largeur de l'écran */
 /* https://www.youtube.com/watch?v=im_uQNk50PY */
 /* https://developer.mozilla.org/fr/docs/Web/CSS/clamp */
 .logo { 
@@ -62,12 +50,10 @@ body {
     margin-bottom: 6px; 
 } 
 
-/* L'étoile rouge dans le logo */
 .logo .star { 
     color: #e02020; 
 } 
 
-/* Ligne blanche sous le logo */
 /* https://stackoverflow.com/questions/4151743/how-can-i-change-the-thickness-of-my-hr-tag */
 .logo-underline { 
     width: min(480px, 72vw); 
@@ -76,22 +62,22 @@ body {
     margin-bottom: 40px; 
 }
 
-/* Ligne contenant le label "Joueur:" et la zone de texte */
+
 /* https://www.youtube.com/watch?v=RFGiYHPKWgg */
 .username-row {
     display: flex;
     align-items: center;
     gap: 10px;
     position: relative;
-    z-index: 20;          /* au-dessus de la grille qui bloquerait les clics */
+    z-index: 20;         
     pointer-events: all;
 }
 
-/* Zone de texte pour entrer le nom du joueur */
+
 /* https://developer.mozilla.org/fr/docs/Web/CSS/pointer-events */
 #username-input {
     background: rgba(255,255,255,0.1);
-    border: 2px solid rgba(255,255,255,0.5) !important; /* !important pour écraser le style global des inputs */
+    border: 2px solid rgba(255,255,255,0.5) !important;
     outline: none !important;
     border-radius: 4px;
     color: #fff;
@@ -104,18 +90,6 @@ body {
     z-index: 20;
 }
 
-/* Texte grisé quand la zone est vide */
-#username-input::placeholder { 
-    color: rgba(255,255,255,0.4);
-}
-
-/* Bordure blanche quand on clique dans la zone */
-#username-input:focus {
-    border-color: #fff !important;
-    background: rgba(255,255,255,0.15);
-}
-
-/* Bouton arrondi blanc avec dégradé rouge-noir au survol */
 .gradient {
     background-color: white;
     cursor: pointer;
@@ -125,7 +99,7 @@ body {
     margin: 10px;
     height: 50px;
     width: 100px;
-    border-radius: 100px;  /* complètement arrondi */
+    border-radius: 100px;
     border: none;
     display: flex;
     align-items: center;
@@ -133,7 +107,7 @@ body {
     transition: all 0.5s ease-in-out;
 }
 
-/* Pseudo-élément qui crée le dégradé derrière le bouton */
+
 /* https://developer.mozilla.org/fr/docs/Web/CSS/::after */
 .gradient::after {
     content: '';
@@ -146,13 +120,11 @@ body {
     z-index: -1;
 }
 
-/* Le texte du bouton devient blanc au survol */
 .gradient:hover {
     color: white;
     z-index: 0;
 }
 
-/* Style du lien à l'intérieur du bouton */
 /* https://developer.mozilla.org/fr/docs/Web/CSS/text-decoration */
 a {
     text-decoration: none;
@@ -166,7 +138,7 @@ a {
     color: #000;
 }
 
-/* Conteneur plein écran pour les vidéos d'intro */
+
 /* https://developer.mozilla.org/fr/docs/Web/CSS/position */
 .screen { 
     position: fixed; 
@@ -177,8 +149,6 @@ a {
     z-index: 10;
 } 
 
-/* Grille décorative en arrière-plan */
-/* pointer-events:none = la grille ne bloque pas les clics */
 /* https://developer.mozilla.org/fr/docs/Web/CSS/pointer-events */
 .grid { 
     position: absolute;
@@ -191,13 +161,11 @@ a {
     z-index: 11;
 } 
 
-/* Taille des vidéos d'intro */
 video {
     width: min(700px, 90vw);  /* max 700px, mais jamais plus que 90% de l'écran */
     z-index: 1;
 }
 
-/* Nom du joueur affiché en haut à gauche */
 #usernameDisplay {
     position: fixed;
     top: 16px;
@@ -209,8 +177,6 @@ video {
     font-size: 22px;
 }
 
-/* Panneau d'interface en bas de l'écran */
-/* Le dégradé fond l'interface dans le canvas au-dessus */
 #ui-panel {
     position: fixed;
     bottom: 0;
@@ -223,10 +189,6 @@ video {
     pointer-events: none;  /* la zone transparente ne bloque pas les clics sur le canvas */
 }
 
-/* On réactive les clics uniquement sur les éléments enfants du panneau */
-#ui-panel * {
-    pointer-events: all;
-}
 
 /* Titre du panneau */
 #ui-panel h1 {
@@ -237,7 +199,7 @@ video {
     letter-spacing: 2px;
 }
 
-/* Ligne de l'équation : Y = [A] X² + [B] X [TIRER] */
+
 .equation-row {
     display: flex;
     align-items: center;
@@ -248,34 +210,24 @@ video {
     font-family: 'Rajdhani', sans-serif;
 }
 
-/* Zones de texte pour les coefficients A et B */
+
 /* https://www.geeksforgeeks.org/html/how-to-remove-focus-border-outline-around-text-input-boxes */
 .abc {
     background-color: #1a1a1a;
     color: #fff;
-    border: 2px solid #e02020 !important;  /* bordure rouge visible */
+    border: 2px solid #e02020 !important;  
     outline: none !important;
     border-radius: 4px;
     height: 38px;
-    width: 120px;   /* assez large pour voir ce qu'on tape */
+    width: 120px;
     font-size: 22px;
     text-align: center;
     padding: 0 8px;
 }
-
-/* Bordure blanche quand on clique dans la zone */
-.abc:focus { 
-    border-color: #fff !important; 
-}
-
-/* Style global des inputs — enlève la bordure par défaut du navigateur */
-/* Attention : cette règle s'applique à TOUS les inputs de la page */
 input, textarea {
     border: none;
     outline: none;
 }
-
-/* Bouton TIRER */
 .tir {
     background-color: #000;
     color: #fff;
@@ -288,18 +240,11 @@ input, textarea {
     font-family: 'Bebas Neue', sans-serif;
     letter-spacing: 2px;
 }
-
-/* Rouge au survol du bouton TIRER */
-.tir:hover { 
-    background-color: #e02020; 
-}
-
-/* Zone d'affichage du résultat : "HIT!" ou "Miss" */
 #divAffiche {
     margin-top: 8px;
     font-size: 24px;
     font-family: 'Bebas Neue', sans-serif;
     letter-spacing: 3px;
     color: #fff;
-    min-height: 30px;  /* évite que l'interface bouge quand le texte apparaît */
+    min-height: 30px;  
 }
