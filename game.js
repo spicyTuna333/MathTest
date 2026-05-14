@@ -168,7 +168,7 @@ function lancer() {
 
     function step() {
         var worldX = playerX + t
-        var worldY = playerY + (-a*t*t + b*t)
+        var worldY = playerY + (a*t*t + b*t)
 
         var pos = griToPix(worldX, worldY)
         // https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Array/push
