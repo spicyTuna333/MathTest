@@ -188,7 +188,9 @@ video {
     background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0) 100%);
     pointer-events: none;  /* la zone transparente ne bloque pas les clics sur le canvas */
 }
-
+#ui-panel * {
+    pointer-events: all;
+}
 
 /* Titre du panneau */
 #ui-panel h1 {
