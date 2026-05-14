@@ -95,7 +95,6 @@ body {
     cursor: pointer;
     overflow : hidden;
     position: relative;
-    z-index: 20;
     pointer-events: all;
     margin: 10px;
     height: 50px;
