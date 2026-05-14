@@ -57,7 +57,7 @@ function griToPix(gx, gy) {
 }
 let tire= false
 let path = []
-let highlightPath = []
+let highlightPaths = []
 let t= 0
 // https://developer.mozilla.org/fr/docs/Web/API/Canvas_API/Tutorial/Basic_usage
 function drawScene() {
@@ -96,21 +96,19 @@ function drawScene() {
 }
 //https://developer.mozilla.org/fr/docs/Web/API/CanvasRenderingContext2D/setLineDash
 function drawHighlight() {
-    if (highlightPath.length < 2) return// rien à dessiner si vide
-
-    ctx.beginPath()
-    ctx.strokeStyle = "rgba(255, 255, 255, 0.5)"// blanc semi-transparent
-    ctx.lineWidth = 2
-
-    ctx.moveTo(highlightPath[0].px, highlightPath[0].py)
-    for (let i = 1; i < highlightPath.length; i++) {
-        ctx.lineTo(highlightPath[i].px, highlightPath[i].py)
+    for (let p = 0; p < highlightPaths.length; p++) {
+        let currentPath = highlightPaths[p]
+        if (currentPath.length < 2) continue
+        ctx.beginPath()
+        ctx.strokeStyle = "rgba(255, 255, 255, 0.5)"
+        ctx.lineWidth = 2
+        ctx.moveTo(currentPath[0].px, currentPath[0].py)
+        for (let i = 1; i < currentPath.length; i++) {
+            ctx.lineTo(currentPath[i].px, currentPath[i].py)
+        }
+        ctx.stroke()
     }
-    ctx.stroke()
-
-    ctx.setLineDash([])
 }
-
 //https://developer.mozilla.org/fr/docs/Web/API/Canvas_API/Tutorial/Advanced_animations
 function drawTrail(path, currentPos) {
     if (path.length < 2) return
@@ -142,11 +140,11 @@ function finishShot(didHit) {
 
     if (didHit) {
         document.getElementById("divAffiche").innerText = "HIT!"
-        highlightPath = []
+        highlightPaths = []
         nouvelleparabole()
     } else {
         document.getElementById("divAffiche").innerText = "Miss"    
-        highlightPath = path.slice()
+        highlightPaths.push(path.slice())
         drawScene()
     }
 }
