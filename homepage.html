@@ -2,82 +2,25 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <!--charset="UTF-8" permet d'afficher les accents français (é, à, ç...)
-  https://developer.mozilla.org/fr/docs/Web/HTML/Element/meta-->
-
   <title>Math Attaque - Home</title>
-
-  <!--Google Fonts : charge deux polices depuis internet
-    Bebas Neue  = police d'affichage (style arcade, tout en majuscules)
-    Rajdhani    = police de texte (style militaire/technique)
-  https://fonts.google.com/
-  https://developers.google.com/fonts/docs/getting_started-->
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet">
-
-  <!--Charge le fichier CSS externe qui contient tous les styles visuels
-https://developer.mozilla.org/fr/docs/Web/HTML/Element/link-->
   <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-
-  <!--La grille de fond — lignes fines qui donnent un look "graphe mathématique"
-    Le style est défini dans style.css sous la classe .grid
-https://developer.mozilla.org/fr/docs/Web/HTML/Element/div-->
   <div class="grid"></div>
-
-  <!--Image de fond (derrière tout le reste)
-https://developer.mozilla.org/fr/docs/Web/CSS/background-image-->
   <div class="home-bg"></div>
-
-  <!-- Calque sombre semi-transparent par-dessus l'image
-    Sert à rendre le texte blanc lisible sur l'image de fond
-https://developer.mozilla.org/fr/docs/Web/CSS/opacity-->
   <div class="home-overlay"></div>
-
-  <!-- Contenu principal de la page d'accueil
-    Tout est centré avec flexbox dans style.css
-   https://developer.mozilla.org/fr/docs/Web/CSS/CSS_flexible_box_layout-->
   <div class="home-content">
-
-    <!--Logo du jeu
-      &nbsp; = espace insécable (empêche le texte de couper à cet endroit)
-      <span class="star"> = la couleur rouge du ✦ est gérée dans le CSS
-https://developer.mozilla.org/fr/docs/Web/HTML/Element/span-->
     <div class="logo">Math&nbsp;Att<span class="star">✦</span>que</div>
-
-    <!-- Ligne blanche décorative sous le logo -->
     <div class="logo-underline"></div>
-
-    <!--Rangée avec l'étiquette et l'input de nom d'utilisateur
-      for="username-input" lie le label à l'input (bonne pratique accessibilité)
-https://developer.mozilla.org/fr/docs/Web/HTML/Element/label
-https://developer.mozilla.org/fr/docs/Web/HTML/Element/input-->
     <div class="username-row">
       <label for="username-input">Joueur:</label>
-      <input
-        id="username-input"
-        type="text"
-        placeholder="Entrer votre nom"
-        maxlength="20"
-      >
-      <!--maxlength="20" limite à 20 caractères maximum
-        placeholder = texte grisé affiché quand le champ est vide-->
+      <input id="username-input" type="text" placeholder="Entrer votre nom" maxlength="20">
     </div>
-    <!--Bouton Jouer
-      onclick="handlePlay()" appelle la fonction dans homepage.js quand on clique
-      https://developer.mozilla.org/fr/docs/Web/HTML/Element/button
-      https://developer.mozilla.org/fr/docs/Web/API/GlobalEventHandlers/onclick-->
-    <div class="gradient">
-      <button id="play-btn" onclick="handlePlay()">Jouer</button>
-    </div>
-
+        <div class="gradient">
+            <a href="game.html" id="play-btn">Jouer</a>
+        </div>
   </div>
-
-  <!--Charge le fichier JavaScript de la page d'accueil
-    Mis en bas du body pour que le HTML soit chargé avant le JS
-    https://developer.mozilla.org/fr/docs/Web/HTML/Element/script-->
-  <script src="homepage.js"></script>
-
+    <script src="script.js"></script>
 </body>
 </html>
