@@ -7,6 +7,15 @@ body {
     color: #fff; 
     font-family: 'Rajdhani', sans-serif; 
     overflow: hidden; 
+    margin: 0; 
+    overflow: hidden; 
+}
+//developer.mozilla.org 
+  #myCanvas { 
+      position: fixed; 
+      top: 0; 
+      left: 0; 
+  }
 } 
 /* youtube.com */
 .home-bg { 
@@ -109,9 +118,7 @@ video{
   z-index:1;
 }
 canvas{
-  border:1px solid red;
   display:block;
-  margin:auto;
 }
 .abc {
   /*https://www.geeksforgeeks.org/html/how-to-remove-focus-border-outline-around-text-input-boxes*/
