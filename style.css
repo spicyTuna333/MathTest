@@ -3,28 +3,30 @@
 
 body { 
     width: 100%; 
-    height: 100vh;       
-    background: #000; 
-    color: #fff;       
+    height: 100vh;     
+    background: #000;  
+    color: #fff; 
     font-family: 'Rajdhani', sans-serif; 
-    overflow: hidden;  
-    margin: 0;            
+    overflow: hidden;    
+    margin: 0;           
     padding: 0;
 }
 
+/* https://developer.mozilla.org/fr/docs/Web/HTML/Element/canvas */
 #myCanvas { 
     display: block;
 }
 
+
 .home-bg { 
     position: absolute; 
-    inset: 0;
+    inset: 0; 
     background-image: url('Home_Page_Background.png'); 
     background-size: cover; 
     background-position: top center; 
-    z-index: 0;  
+    z-index: 0; 
 } 
-
+/* https://developer.mozilla.org/fr/docs/Web/CSS/gradient/linear-gradient */
 .home-overlay { 
     position: absolute; 
     inset: 0; 
@@ -32,17 +34,16 @@ body {
     z-index: 1;
 } 
 
+/* https://developer.mozilla.org/fr/docs/Web/CSS/CSS_flexible_box_layout */
 .home-content { 
     position: relative; 
-    z-index: 5;        
+    z-index: 5; 
     height: 100vh; 
-    display: flex;   
+    display: flex;      
     flex-direction: column; 
     align-items: center; 
-    justify-content: center; 
+    justify-content: center;
 } 
-
-/* https://www.youtube.com/watch?v=im_uQNk50PY */
 /* https://developer.mozilla.org/fr/docs/Web/CSS/clamp */
 .logo { 
     font: 500 clamp(52px, 9vw, 100px) 'Bebas Neue', sans-serif; 
@@ -53,7 +54,6 @@ body {
 .logo .star { 
     color: #e02020; 
 } 
-
 /* https://stackoverflow.com/questions/4151743/how-can-i-change-the-thickness-of-my-hr-tag */
 .logo-underline { 
     width: min(480px, 72vw); 
@@ -61,23 +61,19 @@ body {
     background: #ffffff; 
     margin-bottom: 40px; 
 }
-
-
 /* https://www.youtube.com/watch?v=RFGiYHPKWgg */
 .username-row {
     display: flex;
     align-items: center;
     gap: 10px;
     position: relative;
-    z-index: 20;         
+    z-index: 20; 
     pointer-events: all;
 }
-
-
 /* https://developer.mozilla.org/fr/docs/Web/CSS/pointer-events */
 #username-input {
     background: rgba(255,255,255,0.1);
-    border: 2px solid rgba(255,255,255,0.5) !important;
+    border: 2px solid rgba(255,255,255,0.5) !important; 
     outline: none !important;
     border-radius: 4px;
     color: #fff;
@@ -90,6 +86,15 @@ body {
     z-index: 20;
 }
 
+#username-input::placeholder { 
+    color: rgba(255,255,255,0.4);
+}
+
+#username-input:focus {
+    border-color: #fff !important;
+    background: rgba(255,255,255,0.15);
+}
+
 .gradient {
     background-color: white;
     cursor: pointer;
@@ -99,16 +104,13 @@ body {
     margin: 10px;
     height: 50px;
     width: 100px;
-    border-radius: 100px;
+    border-radius: 100px; 
     border: none;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all 0.5s ease-in-out;
+    
 }
-
-
-/* https://developer.mozilla.org/fr/docs/Web/CSS/::after */
 .gradient::after {
     content: '';
     position: absolute;
@@ -119,12 +121,10 @@ body {
     background: linear-gradient(to bottom right, red 0% 35%, black 100%);
     z-index: -1;
 }
-
 .gradient:hover {
     color: white;
     z-index: 0;
 }
-
 /* https://developer.mozilla.org/fr/docs/Web/CSS/text-decoration */
 a {
     text-decoration: none;
@@ -137,8 +137,6 @@ a {
     letter-spacing: 3px;
     color: #000;
 }
-
-
 /* https://developer.mozilla.org/fr/docs/Web/CSS/position */
 .screen { 
     position: fixed; 
@@ -148,11 +146,10 @@ a {
     align-items: center; 
     z-index: 10;
 } 
-
 /* https://developer.mozilla.org/fr/docs/Web/CSS/pointer-events */
 .grid { 
     position: absolute;
-    pointer-events: none;  /* laisse passer les clics à travers la grille */
+    pointer-events: none;
     inset: 0; 
     background-image: 
         linear-gradient(rgba(255,255,255,0.08) 1px, transparent 1px), 
@@ -160,9 +157,8 @@ a {
     background-size: 60px 60px; 
     z-index: 11;
 } 
-
 video {
-    width: min(700px, 90vw);  /* max 700px, mais jamais plus que 90% de l'écran */
+    width: min(700px, 90vw);
     z-index: 1;
 }
 
@@ -186,13 +182,12 @@ video {
     text-align: center;
     padding: 12px 0 20px;
     background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0) 100%);
-    pointer-events: none;  /* la zone transparente ne bloque pas les clics sur le canvas */
+    pointer-events: none; 
 }
 #ui-panel * {
-    pointer-events: all;
+    pointer-events: auto;
 }
 
-/* Titre du panneau */
 #ui-panel h1 {
     margin: 0 0 10px;
     font-size: 22px;
@@ -200,7 +195,6 @@ video {
     font-family: 'Rajdhani', sans-serif;
     letter-spacing: 2px;
 }
-
 
 .equation-row {
     display: flex;
@@ -212,12 +206,11 @@ video {
     font-family: 'Rajdhani', sans-serif;
 }
 
-
 /* https://www.geeksforgeeks.org/html/how-to-remove-focus-border-outline-around-text-input-boxes */
 .abc {
     background-color: #1a1a1a;
     color: #fff;
-    border: 2px solid #e02020 !important;  
+    border: 2px solid #e02020 !important; 
     outline: none !important;
     border-radius: 4px;
     height: 38px;
@@ -226,10 +219,16 @@ video {
     text-align: center;
     padding: 0 8px;
 }
-input, textarea {
+
+.abc:focus { 
+    border-color: #fff !important; 
+}
+
+textarea {
     border: none;
     outline: none;
 }
+
 .tir {
     background-color: #000;
     color: #fff;
@@ -248,5 +247,5 @@ input, textarea {
     font-family: 'Bebas Neue', sans-serif;
     letter-spacing: 3px;
     color: #fff;
-    min-height: 30px;  
+    min-height: 30px;
 }
