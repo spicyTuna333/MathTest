@@ -220,10 +220,6 @@ video {
     padding: 0 8px;
 }
 
-.abc:focus { 
-    border-color: #fff !important; 
-}
-
 textarea {
     border: none;
     outline: none;
