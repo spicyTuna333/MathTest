@@ -166,10 +166,6 @@ function finishShot(didHit) {
         }
     }
 }
-
-        }
-    }
-}
 function lancer() {
     if (tirsRestants <= 0) {
         document.getElementById("divAffiche").innerText = "Plus de tirs!"
