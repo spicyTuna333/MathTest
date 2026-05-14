@@ -134,7 +134,7 @@ function isNearEnemy(px, py) {
     var dy = py - e.py
     return Math.sqrt(dx*dx + dy*dy) < 14 // distance totale < 14px = touché!
 }
-
+let tirsRestants = 5  
 function finishShot(didHit) {
     tire = false
 
