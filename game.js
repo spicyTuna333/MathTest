@@ -213,5 +213,5 @@ document.getElementById("usernameDisplay").innerText = "Joueur : " + username
 let level = 1
 function levelCounter(){
     level += 1
-    document.getElementById("level").textContent = "Niveau" + level;
+    document.getElementById("level").textContent = "Niveau: " + level;
 }
