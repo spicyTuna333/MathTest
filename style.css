@@ -230,6 +230,17 @@ textarea {
     font-family: 'Bebas Neue', sans-serif;
     letter-spacing: 2px;
 }
+#level {
+    position: fixed;
+    top: 50px;
+    left: 24px;
+    z-index: 10;
+    margin: 0;
+
+    color: #fff;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 22px;
+}
 #divAffiche {
     margin-top: 8px;
     font-size: 24px;
