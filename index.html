@@ -1,19 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <title>Math Attaque</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <title>Math Attaque</title>
+    <!-- On charge le fichier CSS commun à toutes les pages -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- Conteneur plein écran pour les vidéos d'intro -->
+    <div class="screen" id="introScreen">
 
-<div class="screen" id="introScreen">
-  <div class="grid"></div>
-  <video id="opening" muted playsinline preload="auto" src="medias/Opening_Scene.mp4">
-  </video>
-  <video id="loading" muted playsinline preload="auto" hidden src="medias/Loading_screen.mp4">
-  </video>
-</div>
-<script src="intro.js"></script>
+        <!-- Grille décorative en arrière-plan (purement visuelle) -->
+        <div class="grid"></div>
+        <!-- Première vidéo : scène d'ouverture -->
+        <!-- muted = muet, playsinline = joue sans passer en plein écran sur mobile -->
+        <!-- preload="auto" = le navigateur charge la vidéo à l'avance -->
+        <!-- https://developer.mozilla.org/fr/docs/Web/HTML/Element/video -->
+        <video id="opening" muted playsinline preload="auto" src="medias/Opening_Scene.mp4"></video>
+
+        <!-- Deuxième vidéo : écran de chargement -->
+        <!-- hidden = cachée au départ, intro.js l'affiche après la première vidéo -->
+        <video id="loading" muted playsinline preload="auto" hidden src="medias/Loading_screen.mp4"></video>
+
+    </div>
+
+    <!-- Script chargé en dernier pour que les éléments HTML existent déjà -->
+    <!-- intro.js gère la lecture des vidéos et la navigation vers homepage.html -->
+    <script src="intro.js"></script>
 </body>
 </html>
