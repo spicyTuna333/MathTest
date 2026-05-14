@@ -52,7 +52,7 @@ const celHei = hauteure / gridRow
 function griToPix(gx, gy) {
     return {
         px: gx * celWid,// X normal — va de gauche à droite
-        py: hauteure - gy * celHei// Y inversé — 0 est en bas de l'écran
+        py: hauteure - gy * celHei
     }
 }
 let tire= false
@@ -140,8 +140,8 @@ function finishShot(didHit) {
 
     if (didHit) {
         document.getElementById("divAffiche").innerText = "HIT!"
-        level += 1
         highlightPaths = []
+        levelCounter()
         nouvelleparabole()
     } else {
         document.getElementById("divAffiche").innerText = "Miss"    
@@ -211,3 +211,7 @@ let username = localStorage.getItem('mathAttaqueUser') || "Joueur"
 document.getElementById("usernameDisplay").innerText = "Joueur : " + username
 
 let level = 0
+function levelCounter{
+    level += 1
+    document.getElementById("level").textContent = level;
+}
