@@ -145,17 +145,15 @@ function finishShot(didHit) {
     if (didHit) {
         document.getElementById("divAffiche").innerText = "HIT!"
         highlightPaths = []
-         tirsRestants = 5 
+        tirsRestants = 5
         mettreAJourTirs()
         levelCounter()
         nouvelleparabole()
     } else {
         highlightPaths.push(path.slice())
-        drawScene()
-        tirRestants -= 1
-        if (tirRestants <= 0) {
-            document.getElementById("divAffiche").innerText = "Plus de balles, retourne a l'acceuil"
-            // Référence setTimeout : https://developer.mozilla.org/fr/docs/Web/API/setTimeout
+        tirsRestants -= 1
+        if (tirsRestants <= 0) {
+            document.getElementById("divAffiche").innerText = "Plus de balles, retourne a l'acceuil!"
             setTimeout(function() {
                 window.location.href = "Homepage.html"
             }, 2000)
