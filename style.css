@@ -90,11 +90,6 @@ body {
     color: rgba(255,255,255,0.4);
 }
 
-#username-input:focus {
-    border-color: #fff !important;
-    background: rgba(255,255,255,0.15);
-}
-
 .gradient {
     background-color: white;
     cursor: pointer;
@@ -205,8 +200,6 @@ video {
     color: #fff;
     font-family: 'Rajdhani', sans-serif;
 }
-
-/* https://www.geeksforgeeks.org/html/how-to-remove-focus-border-outline-around-text-input-boxes */
 .abc {
     background-color: #1a1a1a;
     color: #fff;
