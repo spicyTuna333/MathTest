@@ -93,6 +93,7 @@ body {
 .gradient {
     background-color: white;
     cursor: pointer;
+    overflow : hidden;
     position: relative;
     z-index: 20;
     pointer-events: all;
