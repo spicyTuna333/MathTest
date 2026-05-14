@@ -231,7 +231,7 @@ textarea {
 }
 #tirs-restants {
     position: fixed;
-    top: 50px;
+    top: 75px;
     left: 24px;
     z-index:99999;
     margin: 0;
