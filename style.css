@@ -233,7 +233,7 @@ textarea {
     position: fixed;
     top: 50px;
     left: 24px;
-    z-index: 1000000000000000000000000000000000;
+    z-index:99999;
     margin: 0;
     color: #fff;
     font-family: 'Rajdhani', sans-serif;
