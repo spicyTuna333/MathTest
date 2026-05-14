@@ -229,6 +229,16 @@ textarea {
     font-family: 'Bebas Neue', sans-serif;
     letter-spacing: 2px;
 }
+#tir-restants {
+    position: fixed;
+    top: 50px;
+    left: 24px;
+    z-index: 999999;
+    margin: 0;
+    color: #fff;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 22px;
+}
 #level {
     position: fixed;
     top: 50px;
