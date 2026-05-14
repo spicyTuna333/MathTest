@@ -141,6 +141,8 @@ function finishShot(didHit) {
     if (didHit) {
         document.getElementById("divAffiche").innerText = "HIT!"
         highlightPaths = []
+         tirsRestants = 5 
+        mettreAJourTirs()
         levelCounter()
         nouvelleparabole()
     } else {
