@@ -147,7 +147,6 @@ function drawHighlight() {
     ctx.beginPath()
     ctx.strokeStyle = "rgba(255, 255, 255, 0.5)"// blanc semi-transparent
     ctx.lineWidth = 2
-    ctx.setLineDash([6, 4])// style pointillé — montre que c'est un "vieux" tir
 
     ctx.moveTo(highlightPath[0].px, highlightPath[0].py)
     for (let i = 1; i < highlightPath.length; i++) {
@@ -204,7 +203,7 @@ function finishShot(didHit) {
         nouvelleparabole() // génère de nouvelles positions
     } else {
         // Tir raté
-        document.getElementById("divAffiche").innerText = "Miss"
+        document.getElementById("divAffiche").innerText = "Miss"    
         highlightPath = path.slice() // .slice() copie le tableau pour le garder affiché
         drawScene()
     }
