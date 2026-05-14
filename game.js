@@ -136,7 +136,7 @@ function isNearEnemy(px, py) {
 }
 let tirsRestants = 5  
 function mettreAJourTirs() {
-    document.getElementById("tirs-restants").innerText = "Tirs : " + tirsRestants + " / 5"
+    document.getElementById("tirs-restants").innerText = "Tirs: " + tirsRestants + " / 5"
 }
 
 function finishShot(didHit) {
