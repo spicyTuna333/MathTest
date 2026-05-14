@@ -140,6 +140,7 @@ function finishShot(didHit) {
 
     if (didHit) {
         document.getElementById("divAffiche").innerText = "HIT!"
+        level += 1
         highlightPaths = []
         nouvelleparabole()
     } else {
@@ -208,3 +209,5 @@ drawScene()
 //https://developer.mozilla.org/fr/docs/Web/API/Window/localStorage
 let username = localStorage.getItem('mathAttaqueUser') || "Joueur"
 document.getElementById("usernameDisplay").innerText = "Joueur : " + username
+
+let level = 0
