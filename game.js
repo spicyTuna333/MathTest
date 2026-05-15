@@ -5,9 +5,7 @@ const canvas = document.getElementById("myCanvas")
 
 //https://developer.mozilla.org/fr/docs/Web/API/HTMLCanvasElement/getContext
 const ctx = canvas.getContext("2d")
-//https://developer.mozilla.org/fr/docs/Web/API/Window/innerWidth
-const largeure = window.innerWidth
-const hauteure = window.innerHeight
+
 
 // Référence CSS : https://developer.mozilla.org/fr/docs/Web/CSS/position
 canvas.style.position = "fixed"
@@ -15,8 +13,7 @@ canvas.style.top= "0"
 canvas.style.left = "0"
 canvas.style.zIndex = "0"
 
-canvas.width = largeure
-canvas.height = hauteure
+
 // https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Math/floor
 function randomPositionPlayerX(minX, maxX) {
     minX = Math.ceil(minX)// arrondit vers le haut
@@ -38,30 +35,54 @@ function randomPositionEnemyY(minY, maxY) {
     maxY = Math.floor(maxY)
     return Math.floor(Math.random() * (maxY - minY + 1)) + minY
 }
-var playerX = randomPositionPlayerX(1, 3)
-var playerY = randomPositionPlayerY(2, 6)
-var enemyX = randomPositionEnemyX(12, 15)
-var enemyY = randomPositionEnemyY(2, 6)
+let playerX = randomPositionPlayerX(1, 3)
+let playerY = randomPositionPlayerY(2, 6)
+let enemyX = randomPositionEnemyX(12, 15)
+let enemyY = randomPositionEnemyY(2, 6)
 
-const griCol = 16 // nombre de colonnes
-const gridRow = 10 // nombre de rangées
-const celWid = largeure / griCol
-const celHei = hauteure / gridRow 
 
-// https://developer.mozilla.org/fr/docs/Web/API/Canvas_API/Tutorial/Drawing_shapes
-function griToPix(gx, gy) {
-    return {
-        px: gx * celWid,// X normal — va de gauche à droite
-        py: hauteure - gy * celHei
-    }
-}
 let tire= false
 let path = []
 let highlightPaths = []
 let t= 0
+
+
+
+function resizeCanvas(){
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    drawGrid(1, 20, 20, "#fdfdfd")
+    drawScene()
+}
+
+ function drawGrid(lineWidth, cellWidth, cellHeight, color){
+        ctx.strokeStyle = color;
+        ctx.lineWidth = lineWidth;
+        
+        
+        
+        for(let x = 0; x <= canvas.width; x += cellWidth){
+          ctx.beginPath();
+          ctx.moveTo(x, 0);
+          ctx.lineTo(x, canvas.height);
+          ctx.stroke();
+        }
+        
+        for(let y = 0; y <= canvas.height; y += cellHeight){
+          ctx.beginPath();
+          ctx.moveTo(0, y);
+          ctx.lineTo(canvas.width, y);
+          ctx.stroke();
+        }
+    }
+
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+    
 // https://developer.mozilla.org/fr/docs/Web/API/Canvas_API/Tutorial/Basic_usage
 function drawScene() {
-    //https://developer.mozilla.org/fr/docs/Web/API/CanvasRenderingContext2D/fillRect
+   /* //https://developer.mozilla.org/fr/docs/Web/API/CanvasRenderingContext2D/fillRect
     ctx.fillStyle = "#000"
     ctx.fillRect(0, 0, largeure, hauteure)
 
@@ -78,19 +99,20 @@ function drawScene() {
         ctx.moveTo(0, i * celHei) // part de la gauche
         ctx.lineTo(largeure, i * celHei) // va jusqu'à droite
         ctx.stroke()
-    }
+    } */
+
     //https://developer.mozilla.org/fr/docs/Web/API/CanvasRenderingContext2D/arc
-    var player = griToPix(playerX, playerY)
+    let player = griToPix(playerX, playerY)
     ctx.beginPath()
     ctx.arc(player.px, player.py, 8, 0, Math.PI * 2)
     ctx.fillStyle = "#0cc"// cyan
     ctx.fill()
-    var enemy = griToPix(enemyX, enemyY)
+    let enemy = griToPix(enemyX, enemyY)
     ctx.beginPath()
     ctx.arc(enemy.px, enemy.py, 8, 0, Math.PI * 2)
     ctx.fillStyle = "#e44"// rouge
     ctx.fill()
-//drawTurret(player, currentB)
+
     drawHighlight()
 }
 //https://developer.mozilla.org/fr/docs/Web/API/CanvasRenderingContext2D/setLineDash
@@ -128,16 +150,16 @@ function drawTrail(path, currentPos) {
 
 // https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Math/sqrt
 function isNearEnemy(px, py) {
-    var e  = griToPix(enemyX, enemyY)
-    var dx = px - e.px 
-    var dy = py - e.py
+    let e  = griToPix(enemyX, enemyY)
+    let dx = px - e.px 
+    let dy = py - e.py
     return Math.sqrt(dx*dx + dy*dy) < 14 // distance totale < 14px = touché!
 }
 let tirsRestants = 5  
 function mettreAJourTirs() {
     document.getElementById("tirs-restants").innerText = "Tirs: " + tirsRestants + " / 5"
 }
-//let currentB = 0
+
 function finishShot(didHit) {
     tire = false
 
@@ -165,7 +187,6 @@ function finishShot(didHit) {
     }
 }
 function lancer() {
-    //currentB = b
     if (tirsRestants <= 0) {
         document.getElementById("divAffiche").innerText = "Plus de tirs!"
         return
@@ -187,10 +208,10 @@ function lancer() {
     document.getElementById("divAffiche").innerText = ""
 
     function step() {
-        var worldX = playerX + t
-        var worldY = playerY + (a*t*t + b*t)
+        let worldX = playerX + t
+        let worldY = playerY + (a*t*t + b*t)
 
-        var pos = griToPix(worldX, worldY)
+        let pos = griToPix(worldX, worldY)
         // https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Array/push
         path.push(pos)
         drawScene()
@@ -212,8 +233,10 @@ function lancer() {
     step()
 }
 drawScene()
+drawGrid(1, 20, 20, "#fdfdfd")
 mettreAJourTirs()
 function nouvelleparabole() {
+    ctx.reset();
     playerX = randomPositionPlayerX(1, 3)
     playerY = randomPositionPlayerY(2, 6)
     enemyX = randomPositionEnemyX(12, 15)
@@ -227,10 +250,14 @@ function nouvelleparabole() {
     document.getElementById("b").value= ""
     document.getElementById("divAffiche").innerText = ""
     drawScene()
+    drawGrid(1, 20, 20, "#fdfdfd")
+
 }
 drawScene()
+drawGrid(1, 20, 20, "#fdfdfd")
+
 //https://developer.mozilla.org/fr/docs/Web/API/Window/localStorage
-let username = localStorage.getItem('mathAttaqueUser') || "Joueur"
+let username = localStorage.getItem('mathAttaqueUser')
 document.getElementById("usernameDisplay").innerText = "Joueur : " + username
 
 let level = 1
@@ -247,16 +274,3 @@ function screenShake() {
     // l'animation CSS "shake" recommence
     document.body.classList.add("screenShake")
 }
-/*function drawTurret(player, currentB) {
-    let barrelAngle = -Math.atan(currentB)
-    ctx.save()
-    // move origin to player
-    ctx.translate(player.px, player.py)
-    // rotate barrel
-    ctx.rotate(barrelAngle)
-    // draw barrel
-    ctx.fillStyle = "#aaa"
-    ctx.fillRect(0, -3, 40, 6)
-    ctx.restore()
-}*/
-

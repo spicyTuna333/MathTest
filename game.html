@@ -4,6 +4,13 @@
     <meta charset="utf-8">
     <title>Math Attaque - Jeu</title>
     <link rel="stylesheet" href="style.css">
+    <!--source : https://www.w3schools.com/jsref/met_audio_play.asp-->
+    <audio id = "explosion">
+        <source src="explosion.mp3" type="audio/mpeg">
+    </audio>
+    <audio id = "tir">
+        <source src="tir.mp3" type="audio/mpeg">
+    </audio>
 </head>
 <body>
     <canvas id="myCanvas"></canvas>
@@ -21,7 +28,8 @@
         </div>
         <div id="divAffiche"></div>
     </div>
-       <p id="tirs-restants">Tirs: 5 / 5</p>
+       <p id="tirs-restants">Tirs : 5 / 5</p>
     <script src="game.js"></script>
+    <script src="name.js"></script>
 </body>
 </html>
