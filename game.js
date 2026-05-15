@@ -15,30 +15,22 @@ canvas.style.zIndex = "0"
 
 
 // https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Math/floor
-function randomPositionPlayerX(minX, maxX) {
-    minX = Math.ceil(minX)// arrondit vers le haut
-    maxX = Math.floor(maxX) // arrondit vers le bas
-    return Math.floor(Math.random() * (maxX - minX + 1)) + minX
+function randomPositionPlayerX() {
+    Math.random() * (canvas.width - 8);
 }
-function randomPositionPlayerY(minY, maxY) {
-    minY = Math.ceil(minY)
-    maxY = Math.floor(maxY)
-    return Math.floor(Math.random() * (maxY - minY + 1)) + minY
+function randomPositionPlayerY() {
+    Math.random() * (canvas.height - 8);
 }
-function randomPositionEnemyX(minX, maxX) {
-    minX = Math.ceil(minX)
-    maxX = Math.floor(maxX)
-    return Math.floor(Math.random() * (maxX - minX + 1)) + minX
+function randomPositionEnemyX() {
+    Math.random() * (canvas.width - 8);
 }
-function randomPositionEnemyY(minY, maxY) {
-    minY = Math.ceil(minY)
-    maxY = Math.floor(maxY)
-    return Math.floor(Math.random() * (maxY - minY + 1)) + minY
+function randomPositionEnemyY() {
+    Math.random() * (canvas.height - 8);
 }
-let playerX = randomPositionPlayerX(1, 3)
-let playerY = randomPositionPlayerY(2, 6)
-let enemyX = randomPositionEnemyX(12, 15)
-let enemyY = randomPositionEnemyY(2, 6)
+let playerX = randomPositionPlayerX()
+let playerY = randomPositionPlayerY()
+let enemyX = randomPositionEnemyX()
+let enemyY = randomPositionEnemyY()
 
 
 let tire= false
@@ -102,14 +94,14 @@ function drawScene() {
     } */
 
     //https://developer.mozilla.org/fr/docs/Web/API/CanvasRenderingContext2D/arc
-    let player = griToPix(playerX, playerY)
+   
     ctx.beginPath()
-    ctx.arc(player.px, player.py, 8, 0, Math.PI * 2)
+    ctx.arc(playerX, playerY, 8, 0, Math.PI * 2)
     ctx.fillStyle = "#0cc"// cyan
     ctx.fill()
-    let enemy = griToPix(enemyX, enemyY)
+
     ctx.beginPath()
-    ctx.arc(enemy.px, enemy.py, 8, 0, Math.PI * 2)
+    ctx.arc(enemyX, enemyY, 8, 0, Math.PI * 2)
     ctx.fillStyle = "#e44"// rouge
     ctx.fill()
 
