@@ -27,10 +27,6 @@ function randomPositionEnemyX() {
 function randomPositionEnemyY() {
     Math.random() * (canvas.height - 8);
 }
-let playerX = randomPositionPlayerX()
-let playerY = randomPositionPlayerY()
-let enemyX = randomPositionEnemyX()
-let enemyY = randomPositionEnemyY()
 
 
 let tire= false
@@ -71,6 +67,14 @@ function resizeCanvas(){
 
     window.addEventListener('resize', resizeCanvas);
     resizeCanvas();
+
+
+
+let playerX = randomPositionPlayerX()
+let playerY = randomPositionPlayerY()
+let enemyX = randomPositionEnemyX()
+let enemyY = randomPositionEnemyY()
+
     
 // https://developer.mozilla.org/fr/docs/Web/API/Canvas_API/Tutorial/Basic_usage
 function drawScene() {
