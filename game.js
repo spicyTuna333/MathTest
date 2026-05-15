@@ -205,7 +205,7 @@ function lancer() {
     t = 0
     path = []
     document.getElementById("divAffiche").innerText = ""
-    step()
+    //step()
 }
 /*
     function step() {
