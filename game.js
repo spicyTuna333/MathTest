@@ -143,6 +143,7 @@ function finishShot(didHit) {
 
     if (didHit) {
         document.getElementById("divAffiche").innerText = "HIT!"
+        screenShake()
         highlightPaths = []
         tirsRestants = 5
         mettreAJourTirs()
@@ -235,4 +236,13 @@ let level = 1
 function levelCounter(){
     level += 1
     document.getElementById("level").textContent = "Niveau: " + level;
+}
+function screenShake() {
+    // Ceci remet l'animation à zéro
+    document.body.classList.remove("screenShake")
+    // Cette ligne permet à l'animation de pouvoir rejouer immédiatement
+    void document.body.offsetWidth
+    // Rajoute la classe "screenShake"
+    // l'animation CSS "shake" recommence
+    document.body.classList.add("screenShake")
 }
