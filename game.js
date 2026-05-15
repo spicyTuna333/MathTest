@@ -44,6 +44,12 @@ function resizeCanvas(){
     drawScene()
 }
 
+
+let playerX = randomPositionPlayerX()
+let playerY = randomPositionPlayerY()
+let enemyX = randomPositionEnemyX()
+let enemyY = randomPositionEnemyY()
+
  function drawGrid(lineWidth, cellWidth, cellHeight, color){
         ctx.strokeStyle = color;
         ctx.lineWidth = lineWidth;
@@ -70,10 +76,7 @@ function resizeCanvas(){
 
 
 
-let playerX = randomPositionPlayerX()
-let playerY = randomPositionPlayerY()
-let enemyX = randomPositionEnemyX()
-let enemyY = randomPositionEnemyY()
+
 
     
 // https://developer.mozilla.org/fr/docs/Web/API/Canvas_API/Tutorial/Basic_usage
