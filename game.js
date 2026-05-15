@@ -90,7 +90,7 @@ function drawScene() {
     ctx.arc(enemy.px, enemy.py, 8, 0, Math.PI * 2)
     ctx.fillStyle = "#e44"// rouge
     ctx.fill()
-drawTurret(player, currentB)
+//drawTurret(player, currentB)
     drawHighlight()
 }
 //https://developer.mozilla.org/fr/docs/Web/API/CanvasRenderingContext2D/setLineDash
@@ -247,7 +247,7 @@ function screenShake() {
     // l'animation CSS "shake" recommence
     document.body.classList.add("screenShake")
 }
-function drawTurret(player, currentB) {
+/*function drawTurret(player, currentB) {
     let barrelAngle = -Math.atan(currentB)
     ctx.save()
     // move origin to player
@@ -258,4 +258,5 @@ function drawTurret(player, currentB) {
     ctx.fillStyle = "#aaa"
     ctx.fillRect(0, -3, 40, 6)
     ctx.restore()
-}
+}*/
+
