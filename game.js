@@ -90,18 +90,7 @@ function drawScene() {
     ctx.arc(enemy.px, enemy.py, 8, 0, Math.PI * 2)
     ctx.fillStyle = "#e44"// rouge
     ctx.fill()
-    let barrelAngle = -Math.atan(currentB)
-// Calcule l'angle du canon en utilisant la valeur de b (pente de départ)
-ctx.save()
-ctx.translate(player.px, player.py)
-ctx.rotate(barrelAngle)
-// Fait pivoter tout le canvas autour du point du joueur
-ctx.fillStyle = "#0cc"
-// Définit la couleur du canon (gris clair)
-ctx.fillRect(0, -3, 40, 6)
-// Dessine le canon sous forme de rectangle:
-ctx.restore()
-// Remet le canvas dans son état normal
+drawTurret(player, currentB)
     drawHighlight()
 }
 //https://developer.mozilla.org/fr/docs/Web/API/CanvasRenderingContext2D/setLineDash
@@ -257,4 +246,16 @@ function screenShake() {
     // Rajoute la classe "screenShake"
     // l'animation CSS "shake" recommence
     document.body.classList.add("screenShake")
+}
+function drawTurret(player, currentB) {
+    let barrelAngle = -Math.atan(currentB)
+    ctx.save()
+    // move origin to player
+    ctx.translate(player.px, player.py)
+    // rotate barrel
+    ctx.rotate(barrelAngle)
+    // draw barrel
+    ctx.fillStyle = "#aaa"
+    ctx.fillRect(0, -3, 40, 6)
+    ctx.restore()
 }
