@@ -229,10 +229,10 @@ drawGrid(1, 20, 20, "#fdfdfd")
 mettreAJourTirs()
 function nouvelleparabole() {
     ctx.reset();
-    playerX = randomPositionPlayerX(1, 3)
-    playerY = randomPositionPlayerY(2, 6)
-    enemyX = randomPositionEnemyX(12, 15)
-    enemyY = randomPositionEnemyY(2, 6)
+    playerX = randomPositionPlayerX()
+    playerY = randomPositionPlayerY()
+    enemyX = randomPositionEnemyX()
+    enemyY = randomPositionEnemyY()
     tire= false
     path= []
     t= 0
