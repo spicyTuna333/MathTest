@@ -22,7 +22,7 @@ function randomPositionPlayerY() {
     Math.random() * (canvas.height - 8);
 }
 function randomPositionEnemyX() {
-    Math.random() * (canvas.width - 8);
+    (Math.random() * (canvas.width / 2)) + (canvas.width / 2);
 }
 function randomPositionEnemyY() {
     Math.random() * (canvas.height - 8);
