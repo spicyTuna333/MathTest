@@ -205,7 +205,9 @@ function lancer() {
     t = 0
     path = []
     document.getElementById("divAffiche").innerText = ""
-
+    step()
+}
+/*
     function step() {
         let worldX = playerX + t
         let worldY = playerY + (a*t*t + b*t)
@@ -228,9 +230,8 @@ function lancer() {
         t += 0.05 
         requestAnimationFrame(step)
     }
+*/
 
-    step()
-}
 drawScene()
 drawGrid(1, 20, 20, "#fdfdfd")
 mettreAJourTirs()
