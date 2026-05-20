@@ -305,7 +305,7 @@ if (score > parseInt(savedHighScore)) {
     localStorage.setItem('highScore', score);
 }
 let highScore = localSorage.getItem('highScore') || 0
-document.getElementById("highScore-display").innerText = "Highscore : " + highScore
+document.getElementById("highScoreDisplay").innerText = "Highscore : " + highScore
 
 function screenShake() {
     // Ceci remet l'animation à zéro
