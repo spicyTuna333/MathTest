@@ -301,7 +301,7 @@ function levelCounter(){
 }
 
 
-let highScore = localStorage.getItem('highScore') || 0
+let highScore = parseInt(localStorage.getItem('highScore')) || 0
 if (score > parseInt(highScore)) {
     localStorage.setItem('highScore', score);
     highScore = score
