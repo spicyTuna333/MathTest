@@ -1,29 +1,25 @@
 <!DOCTYPE html>
 <html lang="fr">
-<div class="grid"></div>
+
 <head>
   <meta charset="UTF-8">
   <title>Math Attaque - Instructions</title>
 
-  <!--
-    <link> relie un fichier CSS externe a cette page HTML.
-    Tous les styles partages (logo, boutons, body) viennent de style.css.
-    Reference : https://www.w3schools.com/css/css_howto.asp
-  -->
+  <!-- style.css : polices, logo, boutons partages avec le jeu -->
   <link rel="stylesheet" href="style.css">
+  <!-- instructions.css : styles propres a cette page seulement -->
+  <link rel="stylesheet" href="instructions.css">
 </head>
 
 <body>
-
+<div class="grid"></div>
 <div class="centre">
 
-  <!-- .rtrn est defini dans style.css -->
-  <div style="display:flex; justify-content:center; margin-bottom:2rem;">
-    <a href="homepage.html" class="rtrn">← ACCUEIL</a>
+  <div style="display:flex; justify-content:center; margin-bottom:2rem; padding-top:1rem;">
+    <a href="homepage.html" class="gradient" style="color:#000;">← ACCUEIL</a>
   </div>
 
   <div class="entete">
-    <!-- .logo et .star sont definis dans style.css -->
     <div class="logo">MATH ATT<span class="star">✦</span>QUE</div>
     <div class="sous-titre">mode d'emploi</div>
   </div>
@@ -99,9 +95,7 @@
   </div>
 
   <div class="pied">
-    <!-- .levelSel est defini dans style.css -->
     <a href="game.html" class="levelSel">JOUER MAINTENANT</a>
-
     <div class="refs">
       References :
       <a href="https://www.w3schools.com" target="_blank">W3Schools</a> ·
