@@ -199,6 +199,7 @@ function finishShot(didHit) {
         document.getElementById("divAffiche").innerText = "HIT!"
         screenShake()
         score = score+1
+        highScoreCount()
         highlightPaths = []
         tirsRestants = 5
         mettreAJourTirs()
@@ -299,12 +300,15 @@ function levelCounter(){
     document.getElementById("level").textContent = "Niveau: " + level;
 }
 
+function highScoreCount(){
 let highScore = localStorage.getItem('highScore') || 0
 if (score > parseInt(highScore)) {
     localStorage.setItem('highScore', score);
     highScore = score
 }
 document.getElementById("highScoreDisplay").innerText = "Highscore : " + highScore
+}
+
 console.log(highScore)
 console.log(score)
 function screenShake() {
