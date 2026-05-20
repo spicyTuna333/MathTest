@@ -302,7 +302,7 @@ function levelCounter(){
 let highScore = parseInt(localStorage.getItem('highScore')) || 0
 if (score > highScore) {
     highScore = score
-    localStorage.setItem('highScore', highScore.toString())
+    localStorage.setItem('highScore', highScore)
 }
 document.getElementById("highScoreDisplay").innerText = "Highscore : " + highScore
 console.log(highScore)
