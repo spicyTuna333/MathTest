@@ -7,6 +7,7 @@ const canvas = document.getElementById("myCanvas")
 const ctx = canvas.getContext("2d")
 let largeure = window.innerWidth
 let hauteure = window.innerHeight
+let score = 0
 // Référence CSS : https://developer.mozilla.org/fr/docs/Web/CSS/position
 canvas.style.position = "fixed"
 canvas.style.top= "0"
@@ -197,6 +198,7 @@ function finishShot(didHit) {
     if (didHit) {
         document.getElementById("divAffiche").innerText = "HIT!"
         screenShake()
+        score = score++
         highlightPaths = []
         tirsRestants = 5
         mettreAJourTirs()
@@ -296,6 +298,15 @@ function levelCounter(){
     level += 1
     document.getElementById("level").textContent = "Niveau: " + level;
 }
+
+
+let savedHighScore = localStorage.getItem('highScore') || 0
+if (score > parseInt(savedHighScore)) {
+    localStorage.setItem('highScore', score);
+}
+let highScore = localSorage.getItem('highScore') || 0
+document.getElementById("highScore-display").innerText = "Highscore : " + highScore
+
 function screenShake() {
     // Ceci remet l'animation à zéro
     document.body.classList.remove("screenShake")
