@@ -1,24 +1,35 @@
 <!DOCTYPE html>
 <html lang="fr">
+<div class="grid"></div>
 <head>
   <meta charset="UTF-8">
   <title>Math Attaque - Instructions</title>
+
+  <!--
+    <link> relie un fichier CSS externe a cette page HTML.
+    Tous les styles partages (logo, boutons, body) viennent de style.css.
+    Reference : https://www.w3schools.com/css/css_howto.asp
+  -->
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
 <div class="centre">
+
+  <!-- .rtrn est defini dans style.css -->
   <div style="display:flex; justify-content:center; margin-bottom:2rem;">
-    <a href="homepage.html" class="rtrn" style="margin-top:0; padding-top:0; text-decoration:none; color:#000;">
-      ← ACCUEIL
-    </a>
+    <a href="homepage.html" class="rtrn">← ACCUEIL</a>
   </div>
-  <!-- En-tete avec le nom du jeu -->
+
   <div class="entete">
+    <!-- .logo et .star sont definis dans style.css -->
     <div class="logo">MATH ATT<span class="star">✦</span>QUE</div>
     <div class="sous-titre">mode d'emploi</div>
   </div>
+
   <div class="bloc-texte">
+
     <h2>LE BUT DU JEU</h2>
     <p>
       Tu es le <span class="blanc">point cyan</span> a gauche.
@@ -27,21 +38,15 @@
       Tu as <span class="blanc">5 tirs</span> par niveau.
     </p>
 
-    <!-- .separateur = ligne horizontale fine -->
     <div class="separateur"></div>
 
     <h2>LA FORMULE</h2>
     <p>Entre deux nombres : <span class="blanc">a</span> et <span class="blanc">b</span>. Le jeu calcule la trajectoire avec :</p>
 
-    <!-- Boite de formule mathematique -->
     <div class="formule-boite">y = a x t² + b x t</div>
 
     <p>
       <span class="blanc">a</span> = courbure. Toujours negatif (ex: -0.2). Plus negatif = courbe plus courte.<br>
-      <!--
-        <br> = retour a la ligne sans creer un nouveau paragraphe.
-        Reference : https://www.w3schools.com/tags/tag_br.asp
-      -->
       <span class="blanc">b</span> = pente de depart. Plus grand = projectile monte plus haut.
     </p>
 
@@ -54,17 +59,6 @@
 
     <h2>COMMENT CORRIGER</h2>
 
-    <!--
-      TABLEAU HTML.
-      <table> = le tableau entier
-        <thead> = section des titres de colonnes
-          <tr>  = une ligne (table row)
-            <th> = cellule titre (table header)
-        <tbody> = section des donnees
-          <tr>  = une ligne
-            <td> = cellule normale (table data)
-      Reference : https://www.w3schools.com/html/html_tables.asp
-    -->
     <table>
       <thead>
         <tr>
@@ -103,17 +97,11 @@
     </div>
 
   </div>
-  <!-- Fin de .bloc-texte -->
 
-  <!-- Pied de page : bouton pour aller au jeu -->
   <div class="pied">
-
-    <!--
-      Bouton "JOUER" qui va vers game.html.
-      La classe .levelSel vient de style.css.
-      target="_blank" n'est pas utilise ici car c'est une page du meme site.
-    -->
+    <!-- .levelSel est defini dans style.css -->
     <a href="game.html" class="levelSel">JOUER MAINTENANT</a>
+
     <div class="refs">
       References :
       <a href="https://www.w3schools.com" target="_blank">W3Schools</a> ·
@@ -123,7 +111,6 @@
   </div>
 
 </div>
-<!-- Fin de .centre -->
 
 </body>
 </html>
