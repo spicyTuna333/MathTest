@@ -198,7 +198,7 @@ function finishShot(didHit) {
     if (didHit) {
         document.getElementById("divAffiche").innerText = "HIT!"
         screenShake()
-        score = score++
+        score = score+1
         highlightPaths = []
         tirsRestants = 5
         mettreAJourTirs()
