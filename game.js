@@ -299,12 +299,11 @@ function levelCounter(){
     document.getElementById("level").textContent = "Niveau: " + level;
 }
 
-let highScore = parseInt(localStorage.getItem('highScore')) || 0
-if (score > highScore) {
-    highScore = score
-    localStorage.setItem('highScore', highScore)
+let highScore = localStorage.getItem('highScore') || 0
+if (score > parseInt(highScore) {
+    localStorage.setItem('highScore', score)
 }
-document.getElementById("highScoreDisplay").innerText = "Highscore : " + highScore
+document.getElementById("highScoreDisplay").innerText = "Highscore : " + localStorage.getItem('highScore')
 console.log(highScore)
 console.log(score)
 function screenShake() {
