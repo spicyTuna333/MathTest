@@ -301,9 +301,10 @@ function levelCounter(){
 
 let highScore = localStorage.getItem('highScore') || 0
 if (score > parseInt(highScore)) {
-    localStorage.setItem('highScore', score)
+    localStorage.setItem('highScore', score);
+    highScore = score
 }
-document.getElementById("highScoreDisplay").innerText = "Highscore : " + localStorage.getItem('highScore')
+document.getElementById("highScoreDisplay").innerText = "Highscore : " + highScore
 console.log(highScore)
 console.log(score)
 function screenShake() {
