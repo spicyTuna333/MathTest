@@ -358,6 +358,7 @@ border: 1px solid rgba(255,255,255,0.25);
 padding: 9px 22px;
 text-decoration: none;
 }
+    /* Limite la largeur et centre le contenu horizontalement */
     .centre {
       max-width: 780px;
       margin: 0 auto;
@@ -375,22 +376,19 @@ text-decoration: none;
       text-transform: uppercase;
     }
 
-    /* Ligne horizontale fine entre les sections */
+    /* Ligne fine de separation entre les sections */
     .separateur {
       height: 1px;
       background: #2a2a2a;
       margin: 1.5rem 0;
     }
 
-    /* --- BLOC DE CONTENU --- */
-    /*
-      border-left = bordure uniquement a gauche (pas tout autour).
-      Reference : https://www.w3schools.com/css/css_border_sides.asp
-    */
+    /* border-left = bordure uniquement a gauche */
     .bloc-texte {
       border-left: 3px solid #e02020;
       padding: 1.5rem 2rem;
     }
+
     .bloc-texte h2 {
       font-family: 'Bebas Neue', sans-serif;
       font-size: 1.5rem;
@@ -401,33 +399,33 @@ text-decoration: none;
     .bloc-texte h2:first-of-type {
       margin-top: 0;
     }
+
     .bloc-texte p {
       margin-bottom: 0.6rem;
       color: #cccccc;
     }
-    .rouge {
-        color: #e02020; font-weight: bold; 
-    }
-    .blanc { 
-        color: #ffffff; font-weight: bold; 
-    }
-    .jaune { 
-        color: #ffe44d; font-weight: bold; 
-    }
 
-    /* Boite de formule mathematique */
+    /*
+      Ces classes colorent un seul mot avec <span class="blanc">.
+      <span> est inline : il ne cree pas de nouvelle ligne.
+      Reference : https://www.w3schools.com/tags/tag_span.asp
+    */
+    .rouge { color: #e02020; font-weight: bold; }
+    .blanc { color: #ffffff; font-weight: bold; }
+    .jaune { color: #ffe44d; font-weight: bold; }
+
+    /* Boite pour afficher la formule */
     .formule-boite {
       background: #0d0d0d;
       border: 1px solid #333333;
       padding: 0.8rem 1rem;
       text-align: center;
       margin: 0.8rem 0;
-      font-family: monospace;  /* police a largeur fixe, comme un terminal */
+      font-family: monospace;
       font-size: 1.2rem;
       color: #00cccc;
     }
 
-    /* Boite de conseil grise a gauche */
     .boite {
       border-left: 3px solid #555555;
       padding: 0.6rem 1rem;
@@ -437,8 +435,10 @@ text-decoration: none;
     }
 
     /*
-      TABLEAU : structure en lignes et colonnes.
-      border-collapse:collapse = fusionne les bordures des cellules.
+      Tableau HTML. Structure :
+      <table> > <thead> > <tr> > <th>  (titres)
+               <tbody> > <tr> > <td>  (donnees)
+      border-collapse:collapse = fusionne les bordures entre cellules.
       Reference : https://www.w3schools.com/html/html_tables.asp
     */
     table {
@@ -448,7 +448,6 @@ text-decoration: none;
       font-size: 0.95rem;
     }
 
-    /* th = cellule d'en-tete (table header) */
     th {
       text-align: left;
       padding: 0.4rem 0.5rem;
@@ -456,7 +455,6 @@ text-decoration: none;
       color: #999999;
     }
 
-    /* td = cellule normale (table data) */
     td {
       padding: 0.5rem 0.5rem;
       border-bottom: 1px solid #222222;
@@ -464,24 +462,18 @@ text-decoration: none;
       color: #cccccc;
     }
 
-    /* --- PIED DE PAGE --- */
     .pied {
       text-align: center;
       margin-top: 2rem;
     }
 
-    /* Petit texte de references cliquables en bas */
     .refs {
       font-size: 0.62rem;
       color: #444444;
       margin-top: 1.2rem;
     }
 
-    /*
-      Les liens <a> dans .refs : on ecrase le style global de style.css
-      pour les rendre visibles (style.css met color:black sur tous les <a>).
-      Reference : https://www.w3schools.com/css/css_link.asp
-    */
+    /* style.css met color:black sur tous les <a>, on l'ecrase ici */
     .refs a {
       color: #666666;
       text-decoration: none;
