@@ -358,3 +358,135 @@ border: 1px solid rgba(255,255,255,0.25);
 padding: 9px 22px;
 text-decoration: none;
 }
+    .centre {
+      max-width: 780px;
+      margin: 0 auto;
+    }
+
+    .entete {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .sous-titre {
+      font-size: 0.8rem;
+      letter-spacing: 3px;
+      color: #777777;
+      text-transform: uppercase;
+    }
+
+    /* Ligne horizontale fine entre les sections */
+    .separateur {
+      height: 1px;
+      background: #2a2a2a;
+      margin: 1.5rem 0;
+    }
+
+    /* --- BLOC DE CONTENU --- */
+    /*
+      border-left = bordure uniquement a gauche (pas tout autour).
+      Reference : https://www.w3schools.com/css/css_border_sides.asp
+    */
+    .bloc-texte {
+      border-left: 3px solid #e02020;
+      padding: 1.5rem 2rem;
+    }
+    .bloc-texte h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.5rem;
+      color: #ffffff;
+      margin: 1.5rem 0 0.4rem 0;
+    }
+
+    .bloc-texte h2:first-of-type {
+      margin-top: 0;
+    }
+    .bloc-texte p {
+      margin-bottom: 0.6rem;
+      color: #cccccc;
+    }
+    .rouge {
+        color: #e02020; font-weight: bold; 
+    }
+    .blanc { 
+        color: #ffffff; font-weight: bold; 
+    }
+    .jaune { 
+        color: #ffe44d; font-weight: bold; 
+    }
+
+    /* Boite de formule mathematique */
+    .formule-boite {
+      background: #0d0d0d;
+      border: 1px solid #333333;
+      padding: 0.8rem 1rem;
+      text-align: center;
+      margin: 0.8rem 0;
+      font-family: monospace;  /* police a largeur fixe, comme un terminal */
+      font-size: 1.2rem;
+      color: #00cccc;
+    }
+
+    /* Boite de conseil grise a gauche */
+    .boite {
+      border-left: 3px solid #555555;
+      padding: 0.6rem 1rem;
+      margin: 0.8rem 0;
+      font-size: 0.95rem;
+      color: #cccccc;
+    }
+
+    /*
+      TABLEAU : structure en lignes et colonnes.
+      border-collapse:collapse = fusionne les bordures des cellules.
+      Reference : https://www.w3schools.com/html/html_tables.asp
+    */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 0.8rem 0;
+      font-size: 0.95rem;
+    }
+
+    /* th = cellule d'en-tete (table header) */
+    th {
+      text-align: left;
+      padding: 0.4rem 0.5rem;
+      border-bottom: 1px solid #333333;
+      color: #999999;
+    }
+
+    /* td = cellule normale (table data) */
+    td {
+      padding: 0.5rem 0.5rem;
+      border-bottom: 1px solid #222222;
+      vertical-align: top;
+      color: #cccccc;
+    }
+
+    /* --- PIED DE PAGE --- */
+    .pied {
+      text-align: center;
+      margin-top: 2rem;
+    }
+
+    /* Petit texte de references cliquables en bas */
+    .refs {
+      font-size: 0.62rem;
+      color: #444444;
+      margin-top: 1.2rem;
+    }
+
+    /*
+      Les liens <a> dans .refs : on ecrase le style global de style.css
+      pour les rendre visibles (style.css met color:black sur tous les <a>).
+      Reference : https://www.w3schools.com/css/css_link.asp
+    */
+    .refs a {
+      color: #666666;
+      text-decoration: none;
+    }
+
+    .refs a:hover {
+      color: #aaaaaa;
+    }
