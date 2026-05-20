@@ -305,7 +305,7 @@ if (score > highScore) {
     localStorage.setItem('highScore', highScore.toString())
 }
 document.getElementById("highScoreDisplay").innerText = "Highscore : " + highScore
-
+console.log(highScore)
 function screenShake() {
     // Ceci remet l'animation à zéro
     document.body.classList.remove("screenShake")
