@@ -304,7 +304,7 @@ let savedHighScore = localStorage.getItem('highScore') || 0
 if (score > parseInt(savedHighScore)) {
     localStorage.setItem('highScore', score);
 }
-let highScore = localSorage.getItem('highScore') || 0
+let highScore = localStorage.getItem('highScore') || 0
 document.getElementById("highScoreDisplay").innerText = "Highscore : " + highScore
 
 function screenShake() {
