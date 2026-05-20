@@ -306,6 +306,7 @@ if (score > highScore) {
 }
 document.getElementById("highScoreDisplay").innerText = "Highscore : " + highScore
 console.log(highScore)
+console.log(score)
 function screenShake() {
     // Ceci remet l'animation à zéro
     document.body.classList.remove("screenShake")
