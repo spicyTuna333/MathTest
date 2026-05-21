@@ -54,11 +54,12 @@ let playerX = randomPositionPlayerX(0, spawnPlayerX)
 let playerY = randomPositionPlayerY(0, (canvas.height / 20))
 let enemyX = randomPositionEnemyX(spawnPlayerX, (canvas.width / 20))
 let enemyY = randomPositionEnemyY(0, (canvas.height / 20))
-
+/*
 playerX = playerX * 20
 playerY = playerY * 20
 enemyX = enemyX * 20
-enemyY = enemyY * 20
+enemyY = enemyY * 20*/
+
 
 console.log("playerX:", playerX, "playerY:", playerY, "enemyX:", enemyX, "enemyY:", enemyY, "spawnPlayerX:", spawnPlayerX, "canvas.width:", canvas.width, "canvas.height:", canvas.height)
 
