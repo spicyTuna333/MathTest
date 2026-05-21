@@ -103,10 +103,14 @@ function resizeCanvas(){
     resizeCanvas();
 */
 
-const griCol = (canvas.width / 20) // nombre de colonnes
+/*const griCol = (canvas.width / 20) // nombre de colonnes
 const gridRow = (canvas.height / 20) // nombre de rangées
 const celWid = 20
-const celHei = 20
+const celHei = 20*/
+const griCol  = 16
+const gridRow = 10
+const celWid  = largeure / griCol
+const celHei  = hauteure / gridRow
 
 
 // https://developer.mozilla.org/fr/docs/Web/API/Canvas_API/Tutorial/Drawing_shapes
@@ -281,7 +285,6 @@ drawScene()
 
 mettreAJourTirs()
 function nouvelleparabole() {
-    ctx.reset();
     playerX = randomPositionPlayerX(1, 3)
     playerY = randomPositionPlayerY(2, 6)
     enemyX = randomPositionEnemyX(12, 15)
