@@ -1,4 +1,4 @@
-
+let score = 0
 
 
 let highScore = parseInt(localStorage.getItem('highScore')) || 0
