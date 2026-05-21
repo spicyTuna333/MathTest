@@ -288,10 +288,10 @@ drawScene()
 
 mettreAJourTirs()
 function nouvelleparabole() {
-    playerX = randomPositionPlayerX(1, 3)
-    playerY = randomPositionPlayerY(2, 6)
-    enemyX = randomPositionEnemyX(12, 15)
-    enemyY = randomPositionEnemyY(2, 6)
+    let playerX = randomPositionPlayerX(0, spawnPlayerX)
+    let playerY = randomPositionPlayerY(0, (canvas.height / 20))
+    let enemyX = randomPositionEnemyX(spawnPlayerX, (canvas.width / 20))
+    let enemyY = randomPositionEnemyY(0, (canvas.height / 20))
     tire= false
     path= []
     t= 0
