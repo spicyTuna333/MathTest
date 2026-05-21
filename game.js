@@ -150,14 +150,16 @@ function drawScene() {
 
     //https://developer.mozilla.org/fr/docs/Web/API/CanvasRenderingContext2D/arc
     
+    var player = griToPix(playerX, playerY)
     ctx.beginPath()
-    ctx.arc(playerX, playerY, 8, 0, Math.PI * 2)
-    ctx.fillStyle = "#0cc"// cyan
+    ctx.arc(player.px, player.py, 8, 0, Math.PI * 2)
+    ctx.fillStyle = "#0cc"
     ctx.fill()
-  
+
+    var enemy = griToPix(enemyX, enemyY)
     ctx.beginPath()
-    ctx.arc(enemyX, enemyY, 8, 0, Math.PI * 2)
-    ctx.fillStyle = "#e44"// rouge
+    ctx.arc(enemy.px, enemy.py, 8, 0, Math.PI * 2)
+    ctx.fillStyle = "#e44"
     ctx.fill()
 
     drawHighlight()
