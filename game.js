@@ -107,10 +107,10 @@ function resizeCanvas(){
 const gridRow = (canvas.height / 20) // nombre de rangées
 const celWid = 20
 const celHei = 20*/
-const griCol  = 16
-const gridRow = 10
-const celWid  = largeure / griCol
-const celHei  = hauteure / gridRow
+const griCol = (canvas.width / 20)
+const gridRow = (canvas.height / 20)
+const celWid = 20
+const celHei = 20
 
 
 // https://developer.mozilla.org/fr/docs/Web/API/Canvas_API/Tutorial/Drawing_shapes
